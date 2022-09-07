@@ -2,7 +2,7 @@
 - hosts: all
   tasks:
     - name: Get Windows version
-      win_shell: "systeminfo /fo csv | select OS*, System*"
+      win_shell: "systeminfo"
       register: windows_version
 
     - name: Print Windows host information
