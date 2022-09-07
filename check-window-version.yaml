@@ -7,4 +7,4 @@
 
     - name: Print Windows host information
       debug:
-        msg: "{{ OS Name }}"
+        msg: "{{ window_version }}"
