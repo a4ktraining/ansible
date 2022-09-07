@@ -1,0 +1,4 @@
+- name: Return a failure back to Ansible
+  ansible.windows.win_powershell:
+    script: |
+      [Environment]::OSVersion
