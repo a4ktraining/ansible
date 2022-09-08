@@ -1,10 +1,9 @@
 ---
-- hosts: all
-  tasks:
-    - name: Get Windows version
-      win_shell: "systeminfo"
-      register: windows_version
+- name: Check Ansible version
+  command: ansible --version
+  register: ansibleVersion
+  delegate_to: 127.0.0.1
 
-    - name: Print Windows host information
-      debug:
-        msg: "{{ windows_version }}"
+- name: Print version
+  debug:
+    msg: "Ansible Version: {{ ansibleVersion.stdout }}"
