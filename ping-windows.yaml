@@ -1,0 +1,9 @@
+---
+- name : Ping Windows Machine
+  hosts: all
+  gather_facts: no
+  
+  tasks:
+  - name : Ping node
+    win_ping:
+    data: crash
