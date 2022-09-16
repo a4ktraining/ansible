@@ -1,0 +1,15 @@
+- name: Windows Patch Search for updates
+  hosts: all
+  gather_facts: no
+  become_method: runas
+
+  tasks:
+    - name: Search-only, return list of found updates (if any), log to C:\ansible_list-of_update_package.txt
+      win_updates:
+        category_names: SecurityUpdates
+        state: searched
+        log_path: C:\ansible_list-of_update_package.txt
+
+    - name: View List of Windows Update Packages
+      ansible.builtin.debug:
+        msg: "The list of windows update package : {{lookup('ansible.builtin.file', 'C:\ansible_list-of_update_package.txt') }}"
