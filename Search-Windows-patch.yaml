@@ -20,7 +20,7 @@
 #        msg: "The list of windows update package : {{lookup('ansible.builtin.file', 'C:\ansible_list-of_update_package.txt') }}"
         
      - name: get content of file
-       win_shell: 'type C:\ansible_list-of_update_package.txt'  
+       win_shell: 'more C:\ansible_list-of_update_package.txt'  
        register: file_contents
 
      - name: display content
