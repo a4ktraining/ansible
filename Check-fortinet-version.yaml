@@ -5,7 +5,7 @@
   tasks:
     - name: Checking Fortigate OS version
       ansible.builtin.command: 'get system status'
-      register: command_output
-   - name: command output
-      ansible.builtin.debug:
-        var: command_output.stdout_lines
+#      register: command_output
+#   - name: command output
+#      ansible.builtin.debug:
+#        var: command_output.stdout_lines
