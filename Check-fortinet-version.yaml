@@ -1,12 +1,20 @@
 ---
-- name: Check for Fortinet Firewall version
-  hosts: all
-  gather_facts: no
+- hosts: fortigates
+  collections:
+    - fortinet.fortios
+  connection: httpapi
+  vars:
+   vdom: "root"
+   ansible_httpapi_use_ssl: yes
+   ansible_httpapi_validate_certs: no
+   ansible_httpapi_port: 443
   tasks:
-    - name: Checking Fortigate OS version
-      ansible.netcommon.cli_command: 'get system status'
-#      ansible.builtin.command: 'get system status'
-#      register: command_output
-#   - name: command output
-#      ansible.builtin.debug:
-#        var: command_output.stdout_lines
+  - name: Check Fortinet Firewall Version
+    fortios_switch_controller_custom_command:
+      vdom:  "{{ vdom }}"
+      state: "present"
+      access_token: "3mcNk7Qq5bnr9bqHh3g8qk4h8nycgG"
+      switch_controller_custom_command:
+        command: "get system status"
+        command_name: "Get Fortigate OS Version"
+        description: "Retrieve Fortigate OS Firmware version"
