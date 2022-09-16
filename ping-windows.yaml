@@ -1,9 +1,8 @@
 ---
-- name : Ping Windows Machine
+- name: win_ping module 
   hosts: all
-  gather_facts: no
-  
+  become: false
+  gather_facts: false
   tasks:
-  - name : Ping node
-    win_ping:
-    data: crash
+    - name: test connection
+      ansible.windows.win_ping:
