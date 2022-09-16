@@ -15,14 +15,14 @@
         state: searched
         log_path: C:\ansible_list-of_update_package.txt
 
-#    - name: View List of Windows Update Packages
-#      ansible.builtin.debug:
-#        msg: "The list of windows update package : {{lookup('ansible.builtin.file', 'C:\ansible_list-of_update_package.txt') }}"
+    - name: View List of Windows Update Packages
+      ansible.builtin.debug:
+        msg: "The list of windows update package : {{lookup('ansible.builtin.file', 'C:\ansible_list-of_update_package.txt') }}"
         
-     - name: get content of file
-       win_command: 'more C:\ansible_list-of_update_package.txt'  
-       register: file_contents
+#     - name: get content of file
+#       win_command: 'more C:\ansible_list-of_update_package.txt'  
+#       register: file_contents
 
-     - name: display content
-       debug:  
-         msg: "{{ file_contents.stdout_lines }} "
+#     - name: display content
+#       debug:  
+#         msg: "{{ file_contents.stdout_lines }} "
