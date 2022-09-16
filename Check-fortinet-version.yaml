@@ -4,7 +4,8 @@
   gather_facts: no
   tasks:
     - name: Checking Fortigate OS version
-      ansible.builtin.command: 'get system status'
+      ansible.netcommon.cli_command: 'get system status'
+#      ansible.builtin.command: 'get system status'
 #      register: command_output
 #   - name: command output
 #      ansible.builtin.debug:
