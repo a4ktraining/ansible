@@ -6,7 +6,7 @@
   tasks:
   - name : Checking Fortigate OS version
     shell: get system status
-   register: command_output
+#   register: command_output
 
-  - debug:
-    var: command_output.stdout_lines
+#  - debug:
+#    var: command_output.stdout_lines
