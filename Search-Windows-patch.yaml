@@ -4,6 +4,11 @@
   become_method: runas
 
   tasks:
+    - name: Touch a file (creates if not present, updates modification time if present)
+      ansible.windows.win_file:
+        path: C:\ansible_list-of_update_package.txt
+        state: touch
+  
     - name: Search-only, return list of found updates (if any), log to C:\ansible_list-of_update_package.txt
       win_updates:
         category_names: SecurityUpdates
